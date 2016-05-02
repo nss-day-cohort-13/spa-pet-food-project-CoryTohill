@@ -1,11 +1,11 @@
 var brandDiv = document.getElementById("brand");
-var typesDiv = document.getElementById("types");
+var breedsDiv = document.getElementById("breeds");
 var volumesPricesDiv = document.getElementById("volumesPrices");
 var brandHTML = "";
 var typesHTML = "";
 var nameHTML = "";
 var priceHTML = "";
-var nameAndPriceHTML = "";
+var typeVolumePriceHTML = "";
 
 
 var dogFoodRequest = new XMLHttpRequest();
@@ -18,25 +18,26 @@ function processDogFoodData () {
   var dogFoodData = JSON.parse(this.responseText);
 
   for (i = 0; i < dogFoodData.dog_brands.length; i++) {
-    brandHTML += `<p>${dogFoodData.dog_brands[i].name}</p>`;
+    brandHTML += dogFoodData.dog_brands[i].name;
 
     for (typ = 0; typ < dogFoodData.dog_brands[i].types.length; typ++) {
-      typesHTML += `<p>${dogFoodData.dog_brands[i].types[typ].type}</p>`;
+      typesHTML += `${dogFoodData.dog_brands[i].types[typ].type}`;
 
       for (vol = 0; vol < dogFoodData.dog_brands[i].types[typ].volumes.length; vol++) {
         nameHTML = dogFoodData.dog_brands[i].types[typ].volumes[vol].name;
 
         priceHTML = dogFoodData.dog_brands[i].types[typ].volumes[vol].price;
 
-        nameAndPriceHTML += `<p>${nameHTML}, ${priceHTML} : </p>`;
+        typeVolumePriceHTML += `${typesHTML}, ${nameHTML}, ${priceHTML} : `;
       }
+      typesHTML = "";
+
     }
+    volumesPricesDiv.innerHTML += `<p>${typeVolumePriceHTML}</p>`;
+    typeVolumePriceHTML = "";
 
+    brandDiv.innerHTML += `<p>${brandHTML}</p>`;
+    brandHTML = "";
   }
-
-
-  brandDiv.innerHTML += brandHTML;
-  typesDiv.innerHTML += typesHTML;
-  volumesPricesDiv.innerHTML += nameAndPriceHTML;
-
+  breedsDiv.innerHTML += `<p>All Breeds</p>`;
 };
