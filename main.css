@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  margin: 20px;
+}
+
+.columns {
+  vertical-align: top;
+  width: 33%;
+  height: 400px;
+  display: inline-block;
+  border: 2px solid black;
+  margin: 0 -3px;
+}
+
+#brandDiv,
+#breedsDiv {
+  width: 15%;
+}
+
+.columns h1 {
+  text-align: center;
+  background-color: gray;
+  height: 80px;
+  padding-top: 20px;
+}
+
+.columns p {
+  border-top: 2px solid black;
+  height: 80px;
+  padding: 10px;
+}
+
+
