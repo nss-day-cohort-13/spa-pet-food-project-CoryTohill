@@ -1,8 +1,36 @@
-.cols {
-  width: 30%;
-  display: inline-block;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  text-align: top;
+#container {
+  margin: 20px;
+}
+
+.cols {
+  vertical-align: top;
+  width: 33%;
+  height: 400px;
+  display: inline-block;
+  border: 2px solid black;
+  margin: 0 -3px;
+}
+
+.cols h1 {
+  text-align: center;
+  background-color: gray;
+  height: 80px;
+  padding-top: 20px;
+}
+
+.cols p {
+  border-top: 2px solid black;
+  height: 80px;
+  padding: 10px;
+}
+
+#brandDiv,
+#breedsDiv {
+  width: 15%;
 }
